@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        th:fragment="page" th:include="layout :: page">
+<head>
+    <meta charset="UTF-8"/>
+    <title>admin</title>
+</head>
+<body>
+<div th:fragment="content">
+    <div id="movieContent">
+        <h>Admin page</h>
+        <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Movies</a></li>
+                <li><a href="#tab2" data-toggle="tab">Seances</a></li>
+                <li><a href="#tab3" data-toggle="tab">Reservations</a></li>
+                <li><a href="#tab4" data-toggle="tab">Tickets</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <button type="button" class="btn btn-outline-dark"><a th:href="@{/add}">Add new movie</a></button>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Genre</th>
+                            <th width="100px">Start date</th>
+                            <th width="100px">Finish date</th>
+                            <th>Duration</th>
+                            <th>Description</th>
+                            <th>action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="movie:${movies}">
+                            <th scope="row" th:text="${movie.getIdMovie()}"></th>
+                            <th ><img th:src="@{'/pictures/' + ${movie.getPicture()}}" width="100px" height="150px"/></th>
+                            <td th:text="${movie.getName()}"></td>
+                            <td th:text="${movie.getGenre()}"></td>
+                            <td th:text="${movie.getDateOfStart()}"></td>
+                            <td th:text="${movie.getDateOfFinish()}"></td>
+                            <td th:text="${movie.getDuration()}"></td>
+                            <td th:text="${movie.getDescription()}"></td>
+                            <td style="text-align: center"><a class="btn btn-outline-dark" th:href="@{'/deleteMovie/{id}'(id=${movie.getIdMovie()})}">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="tab2">
+
+                </div>
+                <div class="tab-pane" id="tab3">
+
+                </div>
+                <div class="tab-pane" id="tab4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

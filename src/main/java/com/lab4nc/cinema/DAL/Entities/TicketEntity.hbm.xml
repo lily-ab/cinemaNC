@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.lab4nc.cinema.DAL.Entities.TicketEntity" table="ticket" schema="dbcinema">
+        <id name="idTicket">
+            <column name="id_Ticket" sql-type="int(11)"/>
+        </id>
+        <property name="idSeance">
+            <column name="id_Seance" sql-type="int(11)"/>
+        </property>
+        <property name="idHall">
+            <column name="id_Hall" sql-type="int(11)"/>
+        </property>
+        <property name="idRaw">
+            <column name="id_Raw" sql-type="int(11)"/>
+        </property>
+        <property name="idSeat">
+            <column name="id_Seat" sql-type="int(11)"/>
+        </property>
+        <property name="idPrice">
+            <column name="id_Price" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="idReservation">
+            <column name="id_Reservation" sql-type="int(11)"/>
+        </property>
+        <many-to-one name="seanceByIdSeance" class="com.lab4nc.cinema.DAL.Entities.SeanceEntity">
+            <column name="id_Seance"/>
+        </many-to-one>
+        <many-to-one name="hallByIdHall" class="com.lab4nc.cinema.DAL.Entities.HallEntity">
+            <column name="id_Hall"/>
+        </many-to-one>
+        <many-to-one name="rawByIdRaw" class="com.lab4nc.cinema.DAL.Entities.RawEntity">
+            <column name="id_Raw"/>
+        </many-to-one>
+        <many-to-one name="seatByIdSeat" class="com.lab4nc.cinema.DAL.Entities.SeatEntity">
+            <column name="id_Seat"/>
+        </many-to-one>
+        <many-to-one name="priceByIdPrice" class="com.lab4nc.cinema.DAL.Entities.PriceEntity">
+            <column name="id_Price" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="reservationByIdReservation" class="com.lab4nc.cinema.DAL.Entities.ReservationEntity">
+            <column name="id_Reservation"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

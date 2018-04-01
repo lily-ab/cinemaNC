@@ -1,0 +1,20 @@
+#movieBlock{
+    width: 250px;
+    height: 350px;
+    position: relative;
+    display: inline-block;
+    border: medium aliceblue;
+    border-radius: 5px;
+    vertical-align: top;
+    margin: 10px;
+    padding:5px;
+}
+#pictureMini{
+    width: 100px;
+    height: 250px;
+    position: center;
+}
+
+#movieList{
+    height: auto;
+}

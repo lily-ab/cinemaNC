@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/dbcinema</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.HallEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/HallEntity.hbm.xml"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.MovieEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/MovieEntity.hbm.xml"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/PriceEntity.hbm.xml"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.PriceEntity"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.RawEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/RawEntity.hbm.xml"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.ReservationEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/ReservationEntity.hbm.xml"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.SeanceEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/SeanceEntity.hbm.xml"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.SeatEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/SeatEntity.hbm.xml"/>
+      <mapping class="com.lab4nc.cinema.DAL.Entities.TicketEntity"/>
+      <mapping resource="com/lab4nc/cinema/DAL/Entities/TicketEntity.hbm.xml"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

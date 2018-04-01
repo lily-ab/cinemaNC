@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        th:fragment="page" th:include="layout :: page">
+<body>
+<div th:fragment="content">
+    <div id="movieContent">
+        <div id="menu">
+            <h1>Welcome</h1>
+        </div>
+        <div id="movieBlock" th:each="movie:${movies}">
+            <h3><a th:href="@{/movie/{id}/(id=${movie.getIdMovie()})}" th:text="${movie.getName()}"/></h3>
+            <p th:text="${movie.getGenre()}"></p>
+            <div id="pictureMini">
+                <img th:src="@{'/pictures/' + ${movie.getPicture()}}" width="170px" height="250px"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

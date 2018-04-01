@@ -1,0 +1,49 @@
+#movieContent{
+    position: center;
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+    background: rgba(168, 168, 168, 0.5);
+    padding: 20px;
+}
+#picture{
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin: 20px;
+    display: inline-block;
+}
+#description{
+    position: relative;
+    margin: 5px;
+    text-size: 14pt;
+    font-family: Arial;
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#showTimes{
+    position: relative;
+    width: auto;
+    display: inline-block;
+}
+
+.showPanel{
+ background: darkcyan;
+    border-radius: 10px;
+}
+
+.show{
+    width:100px;
+    height: 50px;
+    text-align: center;
+    font-style: oblique;
+    text-size:18pt;
+    display: inline-block;
+    background: slategrey;
+}
+.show:hover{
+    background: darkslategrey;
+}

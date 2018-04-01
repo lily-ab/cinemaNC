@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="page" th:include="layout :: page">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${movie.name}"></title>
+    <link href="/css/movieStyle.css" th:href="@{/css/movieStyle.css}" rel="stylesheet" />
+</head>
+<body>
+    <div th:fragment="content">
+        <div id="movieContent">
+        <H1 th:text="${movie.name}"></H1>
+        <div id="picture">
+            <img th:src="@{'/pictures/' + ${movie.getPicture()}}" width="300px" height="470px"/>
+        </div>
+        <div id="description">
+            <p th:text="${movie.description}"></p>
+        </div>
+        <div id="showTimes">
+            <h3>The nearest seances:</h3>
+            <div class="showPanel">
+                <div class="show" th:each="seance:${seances}">
+                    <p><a th:href="@{/seance/{id}/(id=${seance.id_Seance})}" th:text="${seance.getDate()}"/></p>
+                    <p th:text="${seance.getTime()}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

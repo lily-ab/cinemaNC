@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
+<body>
+    <div th:fragment="content">
+        <div id="movieContent">
+        <div class="page-header">
+            <h3>New Movie</h3>
+        </div>
+        <form th:action="@{/add}" th:object="${movie}" method="POST">
+            <input type="hidden" th:field="*{idMovie}" />
+
+            <div class="form-group">
+                <label for="name">Movie name</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" th:field="*{genre}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="genre">Date of start</label>
+                <input type="date" class="form-control" id="dateOfStart" th:field="*{dateOfStart}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('dateOfStart')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="genre">Date of finish</label>
+                <input type="date" class="form-control" id="dateOfFinish" th:field="*{dateOfFinish}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('dateOfFinish')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration: min</label>
+                <input type="number" class="form-control" id="duration" th:field="*{duration}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('duration')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="picture">Picture</label>
+                <input type="text" class="form-control" id="picture" th:field="*{picture}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('picture')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" th:field="*{description}" />
+                <ul>
+                    <li th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-default">Save</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

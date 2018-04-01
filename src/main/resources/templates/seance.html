@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="page" th:include="layout :: page">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${seance.getId_Seance()}"></title>
+    <link href="/css/movieStyle.css" th:href="@{/css/movieStyle.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:fragment="content">
+    <div id="movieContent">
+        <p th:text="${seance.getDate()}"></p>
+        <p th:text="${seance.getTime()}"></p>
+    </div>
+</div>
+</body>
+</html>

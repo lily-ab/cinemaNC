@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.lab4nc.cinema.DAL.Entities.PriceEntity" table="price" schema="dbcinema">
+        <id name="idPrice">
+            <column name="id_Price" sql-type="int(11)"/>
+        </id>
+        <property name="idSeance">
+            <column name="id_Seance" sql-type="int(11)"/>
+        </property>
+        <property name="idRaw">
+            <column name="id_Raw" sql-type="int(11)"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="int(11)"/>
+        </property>
+        <many-to-one name="seanceByIdSeance" class="com.lab4nc.cinema.DAL.Entities.SeanceEntity">
+            <column name="id_Seance"/>
+        </many-to-one>
+        <many-to-one name="rawByIdRaw" class="com.lab4nc.cinema.DAL.Entities.RawEntity">
+            <column name="id_Raw"/>
+        </many-to-one>
+        <set name="ticketsByIdPrice" inverse="true">
+            <key>
+                <column name="id_Price" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.lab4nc.cinema.DAL.Entities.TicketEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>
