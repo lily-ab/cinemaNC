@@ -20,7 +20,7 @@
             <h3>The nearest seances:</h3>
             <div class="showPanel">
                 <div class="show" th:each="seance:${seances}">
-                    <p><a th:href="@{/seance/{id}/(id=${seance.id_Seance})}" th:text="${seance.getDate()}"/></p>
+                    <p><a th:href="@{/seance/{id}/(id=${seance.getIdSeance()})}" th:text="${seance.getDate()}"/></p>
                     <p th:text="${seance.getTime()}"></p>
                 </div>
             </div>

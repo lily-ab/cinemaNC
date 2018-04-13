@@ -3,14 +3,40 @@
       th:fragment="page" th:include="layout :: page">
 <head>
     <meta charset="UTF-8"/>
-    <title th:text="${seance.getId_Seance()}"></title>
+    <link href="/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
     <link href="/css/movieStyle.css" th:href="@{/css/movieStyle.css}" rel="stylesheet" />
+    <title th:text="${seance.getIdSeance()}"></title>
 </head>
 <body>
 <div th:fragment="content">
     <div id="movieContent">
         <p th:text="${seance.getDate()}"></p>
         <p th:text="${seance.getTime()}"></p>
+        <div class="hallSchema">
+            <div class="block">
+            <div class="screen">
+                <p>SCREEN</p>
+            </div>
+            <table>
+                <tr th:each="raw:${raws}">
+                    <td><div class="num" th:text="${raw.getNumber()}"></div></td>
+                    <td th:each="place:${raw.getSeatsByIdRaw()}" th:switch="${takenSeats.contains(place)}">
+                        <div class="emptyPlace" th:case="${false}" th:text="${place.getNumber()}"></div>
+                        <div class="takenPlace" th:case="${true}" th:text="${place.getNumber()}"></div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div class="prices">
+                <table>
+                    <tr th:each="price:${prices}">
+                        <td class="price" th:text="${price.getPrice()}"></td>
+                        <td class="price">RUB</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 </body>

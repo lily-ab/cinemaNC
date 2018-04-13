@@ -97,4 +97,6 @@ public class RawEntity {
     public void setTicketsByIdRaw(Collection<TicketEntity> ticketsByIdRaw) {
         this.ticketsByIdRaw = ticketsByIdRaw;
     }
+
+
 }
