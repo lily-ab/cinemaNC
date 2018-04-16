@@ -14,6 +14,6 @@ public interface PriceRepository extends CrudRepository<PriceEntity,Integer> {
 //            "join p.rawByIdRaw r where r.idHall=:id")
 //    List<HallSchemaModel> findRawAndPrices(@Param("id")int id);
 
-    @Query("select p.price from PriceEntity p where p.idSeance=:idSeance and p.idRaw=:idRaw")
-    String getPrice(@Param("idSeance") int idSeance, @Param("idRaw")int idRaw);
+    @Query("select p from PriceEntity p where p.idSeance=:idSeance and p.idRaw=:idRaw")
+    PriceEntity getPrice(@Param("idSeance") int idSeance, @Param("idRaw")int idRaw);
 }

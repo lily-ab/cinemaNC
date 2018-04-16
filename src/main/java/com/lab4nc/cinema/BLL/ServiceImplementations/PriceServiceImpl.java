@@ -22,7 +22,7 @@ public class PriceServiceImpl implements PriceService{
 //        return priceRep.findRawAndPrices(id);
 //    }
     @Override
-    public String getPrice(int idSeance,int idRaw){
+    public PriceEntity getPrice(int idSeance,int idRaw){
         return priceRep.getPrice(idSeance,idRaw);
     }
 }

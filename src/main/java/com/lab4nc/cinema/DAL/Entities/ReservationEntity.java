@@ -1,8 +1,10 @@
 package com.lab4nc.cinema.DAL.Entities;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -10,8 +12,8 @@ import java.util.Objects;
 public class ReservationEntity {
     private int idReservation;
     private int sum;
-    private Timestamp date;
-    private Byte cancelled;
+    private Date date;
+    private long time;
     private String phone;
     private Collection<TicketEntity> ticketsByIdReservation;
 
@@ -37,22 +39,12 @@ public class ReservationEntity {
 
     @Basic
     @Column(name = "date", nullable = false)
-    public Timestamp getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
-    }
-
-    @Basic
-    @Column(name = "cancelled", nullable = true)
-    public Byte getCancelled() {
-        return cancelled;
-    }
-
-    public void setCancelled(Byte cancelled) {
-        this.cancelled = cancelled;
     }
 
     @Basic
@@ -73,14 +65,13 @@ public class ReservationEntity {
         return idReservation == that.idReservation &&
                 sum == that.sum &&
                 Objects.equals(date, that.date) &&
-                Objects.equals(cancelled, that.cancelled) &&
                 Objects.equals(phone, that.phone);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(idReservation, sum, date, cancelled, phone);
+        return Objects.hash(idReservation, sum, date, phone);
     }
 
     @OneToMany(mappedBy = "reservationByIdReservation")

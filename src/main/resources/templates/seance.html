@@ -37,6 +37,22 @@
                 </table>
             </div>
         </div>
+        <div class="reservation">
+            <form th:action="@{/getSeance}" th:object="${ticket}" method="POST">
+                <input type="hidden" th:field="*{idTicket}" />
+                <input type="hidden" th:field="*{idSeance}" />
+                <input type="hidden" th:field="*{idHall}" />
+                <div class="form-group">
+                    <input type="text" name="raw" id="raw" class="form-control input-lg"
+                           placeholder="Raw" required="true" autofocus="true" th:field="*{idRaw}"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="seat" id="seat" class="form-control input-lg"
+                           placeholder="Seat" required="true" autofocus="true" th:field="*{idSeat}"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>

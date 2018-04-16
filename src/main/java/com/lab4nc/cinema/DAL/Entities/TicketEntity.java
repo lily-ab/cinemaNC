@@ -11,7 +11,7 @@ public class TicketEntity {
     private int idHall;
     private int idRaw;
     private int idSeat;
-    private Integer idPrice;
+    private int idPrice;
     private int idReservation;
     private SeanceEntity seanceByIdSeance;
     private HallEntity hallByIdHall;
@@ -31,7 +31,7 @@ public class TicketEntity {
     }
 
     @Basic
-    @Column(name = "id_Seance", nullable = false, insertable = false, updatable = false)
+    @Column(name = "id_Seance", nullable = false)
     public int getIdSeance() {
         return idSeance;
     }
@@ -41,7 +41,7 @@ public class TicketEntity {
     }
 
     @Basic
-    @Column(name = "id_Hall", nullable = false, insertable = false, updatable = false)
+    @Column(name = "id_Hall", nullable = false)
     public int getIdHall() {
         return idHall;
     }
@@ -51,7 +51,7 @@ public class TicketEntity {
     }
 
     @Basic
-    @Column(name = "id_Raw", nullable = false, insertable = false, updatable = false)
+    @Column(name = "id_Raw", nullable = false)
     public int getIdRaw() {
         return idRaw;
     }
@@ -61,7 +61,7 @@ public class TicketEntity {
     }
 
     @Basic
-    @Column(name = "id_Seat", nullable = false, insertable = false, updatable = false)
+    @Column(name = "id_Seat", nullable = false)
     public int getIdSeat() {
         return idSeat;
     }
@@ -111,7 +111,7 @@ public class TicketEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_Seance", referencedColumnName = "id_Seance", nullable = false)
+    @JoinColumn(name = "id_Seance", referencedColumnName = "id_Seance", nullable = false, insertable = false, updatable = false)
     public SeanceEntity getSeanceByIdSeance() {
         return seanceByIdSeance;
     }
@@ -121,7 +121,7 @@ public class TicketEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_Hall", referencedColumnName = "id_hall", nullable = false)
+    @JoinColumn(name = "id_Hall", referencedColumnName = "id_hall", nullable = false, insertable = false, updatable = false)
     public HallEntity getHallByIdHall() {
         return hallByIdHall;
     }
@@ -131,7 +131,7 @@ public class TicketEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_Raw", referencedColumnName = "id_Raw", nullable = false)
+    @JoinColumn(name = "id_Raw", referencedColumnName = "id_Raw", nullable = false, insertable = false, updatable = false)
     public RawEntity getRawByIdRaw() {
         return rawByIdRaw;
     }
@@ -141,7 +141,7 @@ public class TicketEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_Seat", referencedColumnName = "id_Seat", nullable = false)
+    @JoinColumn(name = "id_Seat", referencedColumnName = "id_Seat", nullable = false, insertable = false, updatable = false)
     public SeatEntity getSeatByIdSeat() {
         return seatByIdSeat;
     }

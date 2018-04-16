@@ -3,6 +3,7 @@ package com.lab4nc.cinema.WEB.Controllers;
 import com.lab4nc.cinema.BLL.ServiceImplementations.MovieServiceImpl;
 import com.lab4nc.cinema.BLL.Services.MovieService;
 import com.lab4nc.cinema.DAL.Entities.MovieEntity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
+
 public class AdminController {
     MovieService mov;
 

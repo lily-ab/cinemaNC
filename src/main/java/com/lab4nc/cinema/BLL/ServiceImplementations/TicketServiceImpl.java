@@ -28,4 +28,9 @@ public class TicketServiceImpl implements TicketService {
         }
         return seats;
     }
+
+    @Override
+    public void addTicket(TicketEntity ticket){
+        ticketRep.save(ticket);
+    }
 }
